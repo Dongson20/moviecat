@@ -1,5 +1,28 @@
 // 9 创建一个路由模块 因为配置路由 要 依赖 angualr的路由 模块 要依赖ngRoute模块
-angular.module('movirApp.route',['ngRoute'])
+angular.module('movieApp.route',['ngRoute'])
 	.config(['$routeProvider',function($routeProvider){
-
+		//配置路由
+		$routeProvider.when('/',{
+			templateUrl:'tmps/index-tmp.html'
+		}).when('/nowplaying',{
+			templateUrl:'tmps/nowplaying-tmp.html',
+			controller:'nowplayingCtrl'
+		}).when('/nowplaying/:pageid/:pagesize',{
+			templateUrl:'tmps/nowplaying-tmp.html',
+			controller:'nowplayingCtrl'
+		}).when('/later',{
+			templateUrl:'tmps/later-tmp.html',
+			controller:'laterCtrl1'
+		}).when('/later/:pageid/:pagesize',{
+			templateUrl:'tmps/later-tmp.html',
+			controller:'laterCtrl1'
+		}).when('/top250',{
+			templateUrl:'tmps/top250-tmp.html',
+			controller:'top250Ctrl'
+		}).when('/top250/:pageid/:pagesize',{
+			templateUrl:'tmps/top250-tmp.html',
+			controller:'top250Ctrl'
+		}).otherwise({
+			redirectTo:'/'
+		})
 	}])
